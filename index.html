@@ -1,456 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>TechLead | Web, Andorid, iOS</title>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./home.css">
-    <link rel="shortcut icon" href="./img/favi_code.png" type="image/x-icon">
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-K8MK4H6QX8"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-
-      gtag('config', 'G-K8MK4H6QX8');
-    </script>
+    <title>Flappy Evolution - CS Demo</title>
+	
+    <link rel="stylesheet" href="./style.css">
 </head>
-<body onload="myFunction()">
+<body>
+
+<div id="game-container">
+    <canvas id="gameCanvas"></canvas>
     
-    <!--myFunction()-->
+    <div class="hud">
+        <div id="scoreDisplay">0</div>
+        <div id="highScoreDisplay" style="font-size: 18px; color: #eee; opacity: 0.8;">BEST: 0</div>
+    </div>
 
-        <div id="loading">
-            <div class="loader">
-
-                <div class="loader__bar"></div>
-                <div class="loader__bar"></div>
-                <div class="loader__bar"></div>
-                <div class="loader__bar"></div>
-                <div class="loader__bar"></div>
-                <div class="loader__ball"></div>
-
-            </div>
+    <!-- Start Menu -->
+    <div id="startMenu" class="ui-layer">
+        <div class="menu-overlay">
+            <h1 style="margin: 0; color: #f1c40f; font-size: 42px;">FLAPPY CS</h1>
+            <p>A Neural Network Evolution Demo</p>
+            <button onclick="game.start()">PLAY GAME</button>
+            <p style="font-size: 12px; margin-top: 15px; color: #aaa;">SPACE/CLICK to Jump | 'A' for AI Mode</p>
         </div>
-
-        <header>
-            
-
-            <div class="navigation-bar">
-
-                <div class="container">
-
-                    <div class="wp">
-
-                        <div class="site-logo">
-
-                            <h2>TechLead</h2>
-                            <!-- <a class="char-now" href="#">Chat</a> -->
-                           
-                        </div>
-
-                        <div class="site-nav-bar">
-
-                            <ul>
-                                <li><a href="#">SERVICES</a></li>
-                                <li><a href="#">PORTFOLIO</a></li>
-                                <li><a href="#">TOOLBOX</a></li>
-                            </ul>
-
-                        </div>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-            <div class="container">
-                <div class="wraper">
-                    
-                <div class="left-home-page">
-    
-                    <div class="my_des">
-    
-                        <h2>Full Stack Web Developer & WordPress Developer</h2>
-                        <p>I am Imtiaz Ahammed Nafiz also known as TechLead on the internet,
-                        A Full Stack PHP Web Developer and A WordPress Developer!</p>
-    
-                    </div>
-    
-                    <div class="button">
-    
-                        <a href="https://www.fiverr.com/imtiaz_techlead?up_rollout=true"><img src="./img/Fiverr.png" alt="logo"/>Hire Me</a>
-                        <br/>
-                        <a href="#">PROJECTS</a>
-                    </div>
-    
-                </div>
-    
-                <div class="right-home-page">
-    
-                    <img class="heroMan" src="./img/heroMan.png" alt="logo"/>
-    
-                </div>
-            </div>
-            </div>
-    
-        </header>
-
-        <section class="What-I-do">
-
-            <div class="container">
-
-                <div class="head-what-do">
-
-                    <h2>What I do</h2>
-                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quisquam aperiam eos harum eum beatae officia totam fuga, reiciendis iure fugit at unde sapiente modi molestiae!</p>
-                </div>
-
-                <div class="wraper-mine flex-content-do">
-
-                    <div class="single-div-profession">
-
-                        <div class="profession-icon">
-
-                            <img class="fornt-end" src="./img/favi.png" alt="logo"/>
-
-                        </div>
-
-                        <div class="profession-description">
-
-                            <h2>Front End Development</h2>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti sit aut nulla beatae veritatis non!</p>
-                        </div>
-
-                    </div>
-
-                    <div class="single-div-profession">
-
-                        <div class="profession-icon">
-
-                            <img class="back-end" src="./img/cog.png" alt="logo"/>
-
-                        </div>
-
-                        <div class="profession-description">
-
-                            <h2>Backend Development</h2>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti sit aut nulla beatae veritatis non!</p>
-                        </div>
-
-                    </div>
-
-                    <div class="single-div-profession">
-
-                        <div class="profession-icon">
-
-                            <img class="word" src="./img/word.png" alt="logo"/>
-
-                        </div>
-
-                        <div class="profession-description">
-
-                            <h2>WordPress Development</h2>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti sit aut nulla beatae veritatis non!</p>
-                        </div>
-
-                    </div>
-
-                    <div class="single-div-profession">
-
-                        <div class="profession-icon">
-
-                            <img class="iphone" src="./img/an.png" alt="logo"/>
-
-                        </div>
-
-                        <div class="profession-description">
-
-                            <h2>App Development</h2>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti sit aut nulla beatae veritatis non!</p>
-                        </div>
-
-                    </div>
-
-                    <div class="single-div-profession">
-
-                        <div class="profession-icon">
-
-                            <img src="./img/php.png" alt="logo"/>
-
-                        </div>
-
-                        <div class="profession-description">
-
-                            <h2>PHP Development</h2>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti sit aut nulla beatae veritatis non!</p>
-                        </div>
-
-                    </div>
-
-                    <div class="single-div-profession">
-
-                        <div class="profession-icon">
-
-                            <img src="./img/favicon.png" alt="logo"/>
-
-                        </div>
-
-                        <div class="profession-description">
-
-                            <h2>MERN Stack Development</h2>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti sit aut nulla beatae veritatis non!</p>
-                        </div>
-
-                    </div>
-
-                    <div class="single-div-profession">
-
-                        <div class="profession-icon">
-
-                            <img src="./img/favicon.png" alt="logo"/>
-
-                        </div>
-
-                        <div class="profession-description">
-
-                            <h2>PSD to HTML</h2>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti sit aut nulla beatae veritatis non!</p>
-                        </div>
-
-                    </div>
-
-                    <div class="single-div-profession">
-
-                        <div class="profession-icon">
-
-                            <img src="./img/favicon.png" alt="logo"/>
-
-                        </div>
-
-                        <div class="profession-description">
-
-                            <h2>PSD to WordPress</h2>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti sit aut nulla beatae veritatis non!</p>
-                        </div>
-
-                    </div>
-
-                    <div class="single-div-profession">
-
-                        <div class="profession-icon">
-
-                            <img src="./img/favicon.png" alt="logo"/>
-
-                        </div>
-
-                        <div class="profession-description">
-
-                            <h2>Bug Fixing</h2>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti sit aut nulla beatae veritatis non!</p>
-                        </div>
-
-                    </div>
-                    
-
-                </div>
-
-            </div>
-
-        </section>
-
-        <section class="some-of-my-success">
-
-            <div class="container">
-
-                <div class="head-succes">
-
-                    <h1>Some of my Success</h1>
-
-                </div>
-
-                <div class="success-container">
-
-                    
-                    <div class="single-success">
-
-                        <div class="img-des">
-
-                            
-
-                            <h2><a href="https://www.fiverr.com/techlead_?public_mode=true" target="_blank">EXPERT-VETTED on UPWORK</a> <img class="up_vet" src="./img/top1.png" alt="logo"/></h2>
-                            <span class="upwork_profile_goto">Click to View Profile<span class="tooltip"></span></span>
-                            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Recusandae, amet cumque! Quia ullam dolore vero error. Asperiores, vero consequuntur. Facere iste nihil dolor harum tempora at architecto? Fugit possimus unde pariatur autem! Repellat, fugit. Maxime laudantium rerum nulla reprehenderit cumque ducimus! Dolore ipsum minima perferendis.</p>
-
-                        </div>
-                        <div class="image">
-
-                            <img src="./img/upwork1.png" alt="upwork" class="upwork">
-
-                        </div>
-
-                    </div>
-
-                    <div class="single-success">
-
-                        <div class="img-des">
-
-                            
-
-                            <h2><a href="https://www.fiverr.com/techlead_?public_mode=true" target="_blank">Prefered Freelancer on Freelancer.com</a> <img class="up_vet" src="../img/top1.png" alt="logo"/></h2>
-                            <span class="upwork_profile_goto">Click to View Profile<span class="tooltip"></span></span>
-                            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Recusandae, amet cumque! Quia ullam dolore vero error. Asperiores, vero consequuntur. Facere iste nihil dolor harum tempora at architecto? Fugit possimus unde pariatur autem! Repellat, fugit. Maxime laudantium rerum nulla reprehenderit cumque ducimus! Dolore ipsum minima perferendis.</p>
-
-                        </div>
-                        <div class="image">
-
-                            <img src="./img/freelancer-logo.jpg" alt="upwork" class="upwork">
-
-                        </div>
-
-                    </div>
-
-                    <div class="single-success">
-
-                        <div class="img-des">
-
-                            
-
-                            <h2><a href="https://www.fiverr.com/techlead_?public_mode=true" target="_blank">Top Rated Web Programmer on Fiverr</a> <img class="up_vet" src="../img/top1.png" alt="logo"/></h2>
-                            <span class="upwork_profile_goto">Click to View Profile<span class="tooltip"></span></span>
-                            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Recusandae, amet cumque! Quia ullam dolore vero error. Asperiores, vero consequuntur. Facere iste nihil dolor harum tempora at architecto? Fugit possimus unde pariatur autem! Repellat, fugit. Maxime laudantium rerum nulla reprehenderit cumque ducimus! Dolore ipsum minima perferendis.</p>
-
-                        </div>
-                        <div class="image">
-
-                            <img src="./img/fiverr-og-logo.png" alt="upwork" class="upwork">
-
-                        </div>
-
-                    </div>
-                </div>
-
-            </div>
-
-        </section>
-
-        <!--Web Game Section-->
-
-        <section class="Game">
-
-            <div class="container">
-
-                <div class="game_heading">
-
-                    <h2>Some of My Game Projects</h2>
-
-                </div>
-
-                <div class="game_contaier">
-
-                    <div class="single-game-container">
-
-                        <img src="./img/game2.jpg" alt="logo"/>
-
-                        
-
-                    </div>
-
-                    <div class="single-game-container">
-
-                        <img src="./img/game3.jpg" alt="logo"/>
-
-                       
-
-                    </div>
-
-                    <div class="single-game-container">
-
-                        <img src="./img/game1.jpg" alt="logo"/>
-
-                    </div>
-
-                    <div class="single-game-container">
-
-                        <img src="./img/game4.jpg" alt="logo"/>
-
-                    </div>
-
-                    <div class="single-game-container">
-
-                        <img src="./img/game4.jpg" alt="logo"/>
-
-                    </div>
-
-                    <div class="single-game-container">
-
-                        <img src="./img/game4.jpg" alt="logo"/>
-
-                    </div>
-
-                    <div class="single-game-container">
-
-                        <img src="./img/game4.jpg" alt="logo"/>
-
-                    </div>
-
-                    <div class="single-game-container">
-
-                        <img src="./img/game4.jpg" alt="logo"/>
-
-                    </div>
-
-                    <div class="single-game-container">
-
-                        <img src="./img/game4.jpg" alt="logo"/>
-
-                    </div>
-
-                    <div class="single-game-container">
-
-                        <img src="./img/game4.jpg" alt="logo"/>
-
-                    </div>
-
-                    <div class="single-game-container">
-
-                        <h3>Game Thumbnail</h3>
-
-                    </div>
-
-                    <div class="single-game-container">
-
-                        <h3>Game Thumbnail</h3>
-
-                    </div>
-
-                    <div class="single-game-container">
-
-                        <h3>Game Thumbnail</h3>
-
-                    </div>
-
-                    <div class="single-game-container">
-
-                        <h3>Game Thumbnail</h3>
-
-                    </div>
-
-                    <div class="single-game-container">
-
-                        <h3>Game Thumbnail</h3>
-
-                    </div>
-
-                </div>
-            </div>
-
-        </section>
-    
-       
-    <!--All JavaScript Files-->
-    <script src="./preloader.js"></script>
+    </div>
+
+    <!-- Ready Screen (The "Tap to Start" state) -->
+    <div id="readyScreen" class="ui-layer hidden">
+        <h2 style="font-size: 40px; text-shadow: 3px 3px 0 #000; margin-bottom: 80px;">GET READY</h2>
+        <div class="tap-indicator">TAP OR SPACE TO START</div>
+    </div>
+
+    <!-- Game Over -->
+    <div id="gameOverMenu" class="ui-layer hidden">
+        <div class="menu-overlay">
+            <h2 id="endStatus" style="color: #ff4757;">CRASHED!</h2>
+            <p id="finalScore" style="font-size: 24px;">Score: 0</p>
+            <button onclick="game.restart()">RETRY</button>
+        </div>
+    </div>
+
+    <div id="aiIndicator" class="ai-badge hidden">AI AUTOPILOT</div>
+</div>
+
+	<script src="./app.js"></script>
 </body>
 </html>
